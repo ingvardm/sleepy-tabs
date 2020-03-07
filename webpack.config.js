@@ -1,11 +1,11 @@
 var webpack = require("webpack"),
-    path = require("path"),
-    fileSystem = require("fs"),
-    env = require("./utils/env"),
-    CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin,
-    CopyWebpackPlugin = require("copy-webpack-plugin"),
-    HtmlWebpackPlugin = require("html-webpack-plugin"),
-    WriteFilePlugin = require("write-file-webpack-plugin");
+  path = require("path"),
+  fileSystem = require("fs"),
+  env = require("./utils/env"),
+  CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin,
+  CopyWebpackPlugin = require("copy-webpack-plugin"),
+  HtmlWebpackPlugin = require("html-webpack-plugin"),
+  WriteFilePlugin = require("write-file-webpack-plugin");
 
 // load the secrets
 var alias = {};
@@ -21,9 +21,8 @@ if (fileSystem.existsSync(secretsPath)) {
 var options = {
   mode: process.env.NODE_ENV || "development",
   entry: {
-    popup: path.join(__dirname, "src", "js", "popup.js"),
-    options: path.join(__dirname, "src", "js", "options.js"),
-    background: path.join(__dirname, "src", "js", "background.js")
+    popup: path.join(__dirname, "src", "js", "popup", "popup.js"),
+    background: path.join(__dirname, "src", "js", "background", "background.js")
   },
   output: {
     path: path.join(__dirname, "build"),
@@ -77,11 +76,6 @@ var options = {
       template: path.join(__dirname, "src", "popup.html"),
       filename: "popup.html",
       chunks: ["popup"]
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "options.html"),
-      filename: "options.html",
-      chunks: ["options"]
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "background.html"),

@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.settings-list-item {
+    width: 25rem;
+    display: flex;
+    flex-direction: row;
+    padding: 0.75rem;
+    align-items: center;
+}
+
+.settings-list-item:not(:last-of-type){
+    border-bottom: 0.1rem solid lightgrey;
+}
+
+.settings-list-item > * {
+    margin: 0.75rem;
+}
+
+.label {
+    font-size: 1.6rem;
+    flex-grow: 1;
+}
+
+.checkbox {
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 0.2rem solid cadetblue;
+    transition: background-color 0.2s linear;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.checkbox:after {
+    content: '';
+    width: 3.2rem;
+    height: 3.2rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-dummy {
+    border: 0;
+    pointer-events: none;
+}
+
+.checkbox.checkbox-checked {
+    background-color: cadetblue;
+}
+
+.value-input {
+    /* width: 3.4rem; */
+    padding: 0 0.6rem;
+    font-size: 1.6rem;
+    border: 0;
+    border-bottom: 0.1rem solid cadetblue;
+    text-align: right;
+    line-height: 1.6rem;
+    outline-width: 0;
+}
+
+.value-input.value-input-disabled {
+    border-bottom-color: lightgrey;
+    color: lightgray;
+}
+
+.value-input:focus {
+    box-shadow: none;
+}
+
+.header {
+    padding: 1.5rem;
+    background-color: cadetblue;
+}
+
+.header-title-label {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+}
